@@ -3,11 +3,9 @@ import './autocomplete.scss';
 import React, { Component } from 'react';
 import { GET } from 'utils/fetch';
 import { debounce } from 'lodash';
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
-const MIN_CHARACTERS_TO_SEARCH = 5;
-
-export default class Autocomplete extends Component {
+class Autocomplete extends Component {
   constructor(props) {
     super(props);
 
@@ -50,19 +48,24 @@ export default class Autocomplete extends Component {
 
   handleInputBlur = () => {
     this.setState({
-      // isFocus: false
+      isFocus: false
     });
+  }
+
+  handleItemMouseDown = id => {
+    this.props.history.push(`/movie/${id}`);
   }
 
   render() {
     const { isFocus, moviesResult } = this.state;
 
     return (
-      <div className='autocomplete'>
+      <div
+        className='autocomplete'>
         <input
           className='autocomplete--input'
-          onBlur={this.handleInputBlur}
           onChange={this.handleInputChange}
+          onBlur={this.handleInputBlur}
           onFocus={this.handleInputFocus}
           placeholder='Search movies...'
           type='text'
@@ -75,10 +78,10 @@ export default class Autocomplete extends Component {
               <ul className='autocomplete--suggestions-list'>
                 {
                   moviesResult.map(movie =>
-                    <Link
+                    <li
                       className='autocomplete--suggestions-list-item'
                       key={movie.id}
-                      to={`/movie/${movie.id}`}>
+                      onMouseDown={this.handleItemMouseDown.bind(this, movie.id)}>
                       {
                         movie.poster_path
                           ? <img
@@ -94,7 +97,7 @@ export default class Autocomplete extends Component {
                           {movie.overview}
                         </div>
                       </div>
-                    </Link>
+                    </li>
                   )
                 }
               </ul>
@@ -106,3 +109,4 @@ export default class Autocomplete extends Component {
   }
 }
 
+export default withRouter(Autocomplete);
