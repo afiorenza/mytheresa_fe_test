@@ -14,11 +14,13 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     publicPath: '/',
-    watchContentBase: true
+    watchContentBase: true,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
+      favicon: path.join('src/assets/favicon.ico'),
       template: path.join(__dirname, 'src/index.html'),
       publicPath: '/'
     })
