@@ -34,5 +34,11 @@ module.exports = {
 
   moduleNameMapper:{
     '\\.(scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '^actions(.*)$': '<rootDir>/src/actions$1',
+    '^assets(.*)$': '<rootDir>/src/assets$1',
+    '^components(.*)$': '<rootDir>/src/components/index.js$1',
+    '^reducers(.*)$': '<rootDir>/src/reducers$1',
+    '^utils(.*)$': '<rootDir>/src/utils$1',
+    '^views(.*)$': '<rootDir>/src/views$1'
   }
 };
