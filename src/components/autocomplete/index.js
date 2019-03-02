@@ -1,11 +1,17 @@
 import './autocomplete.scss';
 
-import React, { Component } from 'react';
-import { GET } from 'utils/fetch';
 import { debounce } from 'lodash';
+import { GET } from 'utils/fetch';
 import { withRouter } from 'react-router-dom';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class Autocomplete extends Component {
+  static propTypes = {
+    className: PropTypes.string
+  }
+
   constructor(props) {
     super(props);
 
@@ -22,7 +28,7 @@ class Autocomplete extends Component {
     if (value === '') {
       this.setState({
         moviesResult: []
-      })
+      });
     } else {
       const data = await GET('/3/search/movie', {
         query: value
@@ -61,7 +67,7 @@ class Autocomplete extends Component {
 
     return (
       <div
-        className='autocomplete'>
+        className={classNames('autocomplete', this.props.className)}>
         <input
           className='autocomplete--input'
           onChange={this.handleInputChange}
