@@ -3,6 +3,7 @@ import './autocomplete.scss';
 import { debounce } from 'lodash';
 import { GET } from 'utils/fetch';
 import { withRouter } from 'react-router-dom';
+import { Poster } from 'components';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -30,7 +31,7 @@ class Autocomplete extends Component {
         moviesResult: []
       });
     } else {
-      const data = await GET('/3/search/movie', {
+      const data = await GET('/search/movie', {
         query: value
       });
 
@@ -90,9 +91,10 @@ class Autocomplete extends Component {
                       onMouseDown={this.handleItemMouseDown.bind(this, movie.id)}>
                       {
                         movie.poster_path
-                          ? <img
+                          ? <Poster
                             className='autocomplete--movie-poster'
-                            src={`http://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+                            path={movie.poster_path}
+                            width={50} />
                           : null
                       }
 
