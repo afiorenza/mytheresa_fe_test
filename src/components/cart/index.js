@@ -6,12 +6,27 @@ import { isEmpty } from 'lodash';
 import { Poster } from 'components';
 import { removeFromCart, emptyCart } from 'actions/cart';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-const Cart = ({ cart, emptyCart, removeFromCart }) => {
-  const [isOpen, updateIsOpen] = useState(false);
+export class Cart extends Component {
 
-  const renderCartDetails = () => {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOpen: false
+    };
+  }
+
+  toggleOpen = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  renderCartDetails = () => {
+    const { cart, emptyCart, removeFromCart } = this.props;
+
     return (
       <div className='cart--details'>
         {
@@ -55,28 +70,32 @@ const Cart = ({ cart, emptyCart, removeFromCart }) => {
     );
   };
 
-  return (
-    <div className='cart'>
-      <button
-        className='cart--button'
-        onClick={() => updateIsOpen(!isOpen)}>
-        <i className='cart--icon fas fa-shopping-cart' />
+  render() {
+    const { cart } = this.props;
+    const { isOpen } = this.state;
 
-        <div className='cart--counter'>
-          {cart.length}
-        </div>
-      </button>
+    return (
+      <div className='cart'>
+        <button
+          className='cart--button'
+          onClick={this.toggleOpen}>
+          <i className='cart--icon fas fa-shopping-cart' />
 
-      {isOpen ? renderCartDetails() : null}
-    </div>
-  );
-};
+          <div className='cart--counter'>
+            {cart.length}
+          </div>
+        </button>
+
+        {isOpen ? this.renderCartDetails() : null}
+      </div>
+    );
+  }
+}
 
 Cart.propTypes = {
   cart: PropTypes.array.isRequired,
   emptyCart: PropTypes.func.isRequired,
-  removeFromCart: PropTypes.func.isRequired,
-  history: PropTypes.object
+  removeFromCart: PropTypes.func.isRequired
 };
 
 export default connect(
