@@ -8,6 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware } from 'redux';
+import { Header } from 'components';
 import { Home, Movie } from 'views';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
@@ -32,6 +33,8 @@ render((
     <ConnectedRouter history={history}>
       <BrowserRouter>
         <div className='app'>
+          <Header />
+
           <Switch>
             <Route path='/' component={Home} exact />
             <Route path='/movie/:id' component={Movie} />

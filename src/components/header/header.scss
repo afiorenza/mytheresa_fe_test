@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  &--cart-button {
+    position: relative;
+  }
+
+  &--cart-icon {
+    font-size: 26px;
+  }
+
+  &--cart-counter {
+    background: red;
+    border-radius: 9px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1px;
+    position: absolute;
+    right: 0px;
+    top: 24px;
+    width: 18px;
+  }
+}

@@ -18,9 +18,9 @@ class Movie extends Component {
 
     return (
       <div className='movie'>
-        <h1 className='movie--title'>
+        <h2 className='movie--title'>
           {movie.original_title}
-        </h1>
+        </h2>
 
         <button
           className='movie--add-item-button'
