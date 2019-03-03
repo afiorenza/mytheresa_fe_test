@@ -76,9 +76,7 @@ Cart.propTypes = {
   cart: PropTypes.array.isRequired,
   emptyCart: PropTypes.func.isRequired,
   removeFromCart: PropTypes.func.isRequired,
-  history: {
-    push: PropTypes.func
-  }
+  history: PropTypes.object
 };
 
 export default connect(

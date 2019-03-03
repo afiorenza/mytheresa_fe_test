@@ -12,11 +12,7 @@ class Movie extends Component {
 
   static propTypes = {
     fetchMovie: PropTypes.func,
-    match: {
-      params: {
-        id: PropTypes.string
-      }
-    },
+    match: PropTypes.object,
     movie: PropTypes.object,
     addToCart: PropTypes.func
   }

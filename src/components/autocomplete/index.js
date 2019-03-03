@@ -11,9 +11,7 @@ import React, { Component } from 'react';
 class Autocomplete extends Component {
   static propTypes = {
     className: PropTypes.string,
-    history: {
-      push: PropTypes.func
-    }
+    history: PropTypes.object
   }
 
   constructor(props) {
