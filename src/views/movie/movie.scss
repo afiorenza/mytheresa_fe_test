@@ -4,4 +4,22 @@
     margin-top: 30px;
     width: 100%;
   }
+
+  &--title {
+    display: inline-block;
+  }
+
+  &--add-item-button {
+    background: transparent;
+    border: 0;
+    bottom: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 15px;
+    position: relative;
+  }
+
+  &--add-item-icon {
+    font-size: 20px;
+  }
 }

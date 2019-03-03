@@ -3,7 +3,8 @@ import './movie.scss';
 import { AsyncComponent, Poster } from 'components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as movieActions from 'actions/movie';
+import { fetchMovie } from 'actions/movie';
+import { addToCart } from 'actions/cart';
 import React, { Component } from 'react';
 
 class Movie extends Component {
@@ -20,6 +21,12 @@ class Movie extends Component {
         <h1 className='movie--title'>
           {movie.original_title}
         </h1>
+
+        <button
+          className='movie--add-item-button'
+          onClick={this.props.addToCart.bind(this, movie)}>
+          <i className='movie--add-item-icon fas fa-cart-plus' />
+        </button>
 
         <h3 className='movie--tag-line'>
           {movie.tagline}
@@ -49,5 +56,5 @@ export default connect(
   ({ movie }) => {
     return { ...movie };
   },
-  dispatch => bindActionCreators(movieActions, dispatch)
+  dispatch => bindActionCreators({ addToCart, fetchMovie }, dispatch)
 )(Movie);
