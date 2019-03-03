@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AsyncComponent = ({ isFetching, hasFetched, error, children }) => {
+const AsyncComponent = ({ isFetching, hasFetched, error, renderView }) => {
   if (isFetching) {
     return (
       <div>
@@ -10,7 +10,7 @@ const AsyncComponent = ({ isFetching, hasFetched, error, children }) => {
     );
   }
 
-  if (hasFetched && error) {
+  if (error) {
     return (
       <div>
         Error fetching data.
@@ -18,14 +18,18 @@ const AsyncComponent = ({ isFetching, hasFetched, error, children }) => {
     );
   }
 
-  return children;
+  if (!isFetching && hasFetched) {
+    return renderView();
+  }
+
+  return null;
 };
 
 AsyncComponent.propTypes = {
   isFetching: PropTypes.bool,
   hasFetched: PropTypes.bool,
   error: PropTypes.object,
-  children: PropTypes.node
+  renderView: PropTypes.func.isRequired
 };
 
 export default AsyncComponent;
