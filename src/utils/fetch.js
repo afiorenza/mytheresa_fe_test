@@ -1,4 +1,4 @@
-export const URL = 'https://api.themoviedb.org';
+export const URL = 'https://api.themoviedb.org/3';
 export const MOVIE_SERVICE_API_KEY = 'ecda70f35b0adf10b67e9bddc1029054';
 
 export const parseQueryString = (parameters = {}) => {
