@@ -1,11 +1,10 @@
 import './header.scss';
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { Cart } from '../';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
-const Header = ({ cart }) => {
+const Header = () => {
   return (
     <div className='header'>
       <Link
@@ -16,21 +15,9 @@ const Header = ({ cart }) => {
         </h1>
       </Link>
 
-      <button className='header--cart-button'>
-        <i className='header--cart-icon fas fa-shopping-cart' />
-
-        <div className='header--cart-counter'>
-          {cart.length}
-        </div>
-      </button>
+      <Cart />
     </div>
   );
-}
-
-Header.propTypes = {
-  cart: PropTypes.array.isRequired
 };
 
-export default connect(
-  ({ cart }) => cart
-)(Header);
+export default Header;

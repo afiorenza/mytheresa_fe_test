@@ -93,8 +93,7 @@ class Autocomplete extends Component {
                         movie.poster_path
                           ? <Poster
                             className='autocomplete--movie-poster'
-                            path={movie.poster_path}
-                            width={50} />
+                            path={movie.poster_path} />
                           : null
                       }
 

@@ -25,7 +25,7 @@ export default (state = initialState, { type, payload }) => {
 
       return {
         cart: [
-          ...state.cart.slice(itemToRemoveIndex),
+          ...state.cart.slice(0, itemToRemoveIndex),
           ...state.cart.slice(itemToRemoveIndex + 1)
         ]
       };
