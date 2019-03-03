@@ -10,7 +10,10 @@ import React, { Component } from 'react';
 
 class Autocomplete extends Component {
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    history: {
+      push: PropTypes.func
+    }
   }
 
   constructor(props) {

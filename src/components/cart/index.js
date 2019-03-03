@@ -17,8 +17,8 @@ const Cart = ({ cart, emptyCart, removeFromCart }) => {
         {
           isEmpty(cart)
             ? <p className='cart--empty-cart-warning'>
-              You don't have movies yet!
-              </p>
+              {'You don\'t have movies yet!'}
+            </p>
             : <div>
               <ul className='cart--movies-list'>
                 {
@@ -53,7 +53,7 @@ const Cart = ({ cart, emptyCart, removeFromCart }) => {
         }
       </div>
     );
-  }
+  };
 
   return (
     <div className='cart'>
@@ -75,7 +75,10 @@ const Cart = ({ cart, emptyCart, removeFromCart }) => {
 Cart.propTypes = {
   cart: PropTypes.array.isRequired,
   emptyCart: PropTypes.func.isRequired,
-  removeFromCart: PropTypes.func.isRequired
+  removeFromCart: PropTypes.func.isRequired,
+  history: {
+    push: PropTypes.func
+  }
 };
 
 export default connect(

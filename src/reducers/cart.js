@@ -9,28 +9,30 @@ const initialState = {
 };
 
 export default (state = initialState, { type, payload }) => {
+  let itemToRemoveIndex;
+
   switch (type) {
-    case ADD_TO_CART:
-      return {
-        cart: [...state.cart, payload.item]
-      };
+  case ADD_TO_CART:
+    return {
+      cart: [...state.cart, payload.item]
+    };
 
-    case EMPTY_CART:
-      return {
-        cart: []
-      };
+  case EMPTY_CART:
+    return {
+      cart: []
+    };
 
-    case REMOVE_FROM_CART:
-      const itemToRemoveIndex = state.cart.findIndex(({ id }) => id === payload.id);
+  case REMOVE_FROM_CART:
+    itemToRemoveIndex = state.cart.findIndex(({ id }) => id === payload.id);
 
-      return {
-        cart: [
-          ...state.cart.slice(0, itemToRemoveIndex),
-          ...state.cart.slice(itemToRemoveIndex + 1)
-        ]
-      };
+    return {
+      cart: [
+        ...state.cart.slice(0, itemToRemoveIndex),
+        ...state.cart.slice(itemToRemoveIndex + 1)
+      ]
+    };
 
-    default:
-      return state;
+  default:
+    return state;
   }
-}
+};

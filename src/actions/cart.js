@@ -11,7 +11,7 @@ export const addToCart = item => dispatch => {
       item
     }
   });
-}
+};
 
 export const removeFromCart = id => dispatch => {
   dispatch({
@@ -20,10 +20,10 @@ export const removeFromCart = id => dispatch => {
       id
     }
   });
-}
+};
 
 export const emptyCart = () => dispatch => {
   dispatch({
     type: EMPTY_CART
   });
-}
+};

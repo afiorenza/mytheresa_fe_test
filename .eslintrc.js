@@ -6,7 +6,8 @@ module.exports = {
     },
     'extends': [
         'plugin:react/recommended',
-        'eslint:recommended'
+        'eslint:recommended',
+        "plugin:jest/recommended"
     ],
     'globals': {
         'Atomics': 'readonly',
@@ -20,7 +21,8 @@ module.exports = {
         'sourceType': 'module'
     },
     'plugins': [
-        'react'
+        'react',
+        'jest'
     ],
     'rules': {
         'indent': [

@@ -5,7 +5,7 @@ import {
   URL
 } from '../fetch';
 
-describe.only('fetch utils', () => {
+describe('fetch utils', () => {
 
   describe('parseQueryString', () => {
 
@@ -21,7 +21,7 @@ describe.only('fetch utils', () => {
 
   describe('GET', () => {
     beforeEach(() => {
-      fetch.resetMocks()
+      fetch.resetMocks();
     });
 
     it('should call with correct parameters', () => {
@@ -31,7 +31,7 @@ describe.only('fetch utils', () => {
       });
 
       expect(fetch.mock.calls.length).toEqual(1);
-      expect(fetch).toBeCalledWith(`${URL}/test?a=1&b=2&api_key=${MOVIE_SERVICE_API_KEY}`);
+      expect(fetch).toHaveBeenCalledWith(`${URL}/test?a=1&b=2&api_key=${MOVIE_SERVICE_API_KEY}`);
     });
   });
 });

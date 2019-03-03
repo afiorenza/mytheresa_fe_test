@@ -5,9 +5,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchMovie } from 'actions/movie';
 import { addToCart } from 'actions/cart';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class Movie extends Component {
+
+  static propTypes = {
+    fetchMovie: PropTypes.func,
+    match: {
+      params: {
+        id: PropTypes.string
+      }
+    },
+    movie: PropTypes.object,
+    addToCart: PropTypes.func
+  }
 
   componentDidMount() {
     this.props.fetchMovie(this.props.match.params.id);
