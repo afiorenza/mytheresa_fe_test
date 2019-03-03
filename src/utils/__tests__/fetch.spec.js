@@ -10,12 +10,12 @@ describe('fetch utils', () => {
   describe('parseQueryString', () => {
 
     it('should return string with the parameters parsed', () => {
-      expect(parseQueryString()).toEqual('api_key=ecda70f35b0adf10b67e9bddc1029054');
+      expect(parseQueryString()).toEqual('api_key=ecda70f35b0adf10b67e9bddc1029054&language=en-US');
       expect(parseQueryString({
         a: 1,
         b: 2,
         c: 3
-      })).toEqual('a=1&b=2&c=3&api_key=ecda70f35b0adf10b67e9bddc1029054');
+      })).toEqual('a=1&b=2&c=3&api_key=ecda70f35b0adf10b67e9bddc1029054&language=en-US');
     });
   });
 
@@ -31,7 +31,7 @@ describe('fetch utils', () => {
       });
 
       expect(fetch.mock.calls.length).toEqual(1);
-      expect(fetch).toHaveBeenCalledWith(`${URL}/test?a=1&b=2&api_key=${MOVIE_SERVICE_API_KEY}`);
+      expect(fetch).toHaveBeenCalledWith(`${URL}/test?a=1&b=2&api_key=${MOVIE_SERVICE_API_KEY}&language=en-US`);
     });
   });
 });
