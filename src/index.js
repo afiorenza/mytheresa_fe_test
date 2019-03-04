@@ -16,9 +16,7 @@ import createReducers from 'reducers';
 import React from 'react';
 import thunk from 'redux-thunk';
 
-const history = createBrowserHistory({
-  basename: process.env.PUBLIC_URL
-});
+const history = createBrowserHistory();
 
 const store = createStore(
   createReducers(history),
