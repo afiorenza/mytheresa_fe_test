@@ -40,6 +40,9 @@ module.exports = {
         'semi': [
             'error',
             'always'
+        ],
+        'no-process-env': [
+            'off'
         ]
     }
 };

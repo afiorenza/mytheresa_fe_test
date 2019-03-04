@@ -1,2 +1,11 @@
 .home {
+
+  &--categories-list {
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &--category-list {
+    flex: 50%;
+  }
 }

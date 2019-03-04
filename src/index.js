@@ -4,12 +4,12 @@ import 'babel-core/register';
 import 'babel-polyfill';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Category, Home, Movie } from 'views';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware } from 'redux';
 import { Header } from 'components';
-import { Home, Movie } from 'views';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import createReducers from 'reducers';
@@ -20,7 +20,7 @@ const history = createBrowserHistory();
 
 const store = createStore(
   createReducers(history),
-  process.env.NODE_ENV === 'development'
+  process.env.NODE_ENV === 'development' // eslint-disable-line no-undef
     ? composeWithDevTools(
       applyMiddleware(
         routerMiddleware(history),
@@ -43,6 +43,7 @@ render((
           <Switch>
             <Route path='/' component={Home} exact />
             <Route path='/movie/:id' component={Movie} />
+            <Route path='/category/:category' component={Category} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -99,7 +99,7 @@ class Autocomplete extends Component {
                       }
 
                       <div className='autocomplete--movie-data'>
-                        <span>{movie.title}</span>
+                        <span>{movie.original_title}</span>
 
                         <div className='autocomplete--movie-overview'>
                           {movie.overview}
