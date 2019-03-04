@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/afiorenza/mytheresa_fe_test.svg?branch=master)](https://travis-ci.org/afiorenza/mytheresa_fe_test)
 
-[![Coverage Status](https://coveralls.io/repos/github/afiorenza/mytheresa_fe_test/badge.svg?branch=master)](https://coveralls.io/github/afiorenza/mytheresa_fe_test?branch=master)
-
 ## The porpouse of this respository is to accomplish the interview test.
 
 ### Links
