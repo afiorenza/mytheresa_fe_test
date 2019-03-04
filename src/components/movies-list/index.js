@@ -1,18 +1,21 @@
 import './movies-list.scss';
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import { AsyncComponent } from '../';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const MoviesList = props => {
 
   const renderList = () => {
     return (
-      <div>
-        <Link to={`/category/${props.category}`}>
-          <h3>{props.title}</h3>
+      <div className='movies-list'>
+        <Link
+          to={`/category/${props.category}`}>
+          <h3
+            className='movies-list--title'>
+            {props.title}
+          </h3>
         </Link>
 
         <ul className='movies-list--list'>
@@ -35,7 +38,7 @@ const MoviesList = props => {
   };
 
   return (
-    <div className={classNames('movies-list', props.className)}>
+    <div className={props.className}>
       <AsyncComponent
         {...props}
         renderView={renderList} />

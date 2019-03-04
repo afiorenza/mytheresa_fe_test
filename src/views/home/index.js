@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchCategory } from 'actions/category';
 import { TOP_RATED_MOVIES, POPULAR_MOVIES } from 'actions/action-types';
+import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -19,8 +20,13 @@ class Home extends Component {
   componentDidMount() {
     const { topRatedMovies, popularMovies } = this.props;
 
-    this.props.fetchCategory(TOP_RATED_MOVIES, topRatedMovies.page);
-    this.props.fetchCategory(POPULAR_MOVIES, popularMovies.page);
+    if (isEmpty(topRatedMovies.results)) {
+      this.props.fetchCategory(TOP_RATED_MOVIES, topRatedMovies.page);
+    }
+
+    if (isEmpty(popularMovies.results)) {
+      this.props.fetchCategory(POPULAR_MOVIES, popularMovies.page);
+    }
   }
 
   render() {

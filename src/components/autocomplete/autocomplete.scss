@@ -8,11 +8,13 @@
   }
 
   &--suggestions-pop-up {
+    background: #FFFFFF;
     height: 350px;
     overflow-x: hidden;
     overflow-y: auto;
     position: absolute;
     width: 100%;
+    z-index: 1;
   }
 
   &--suggestions-list-item {
