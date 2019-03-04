@@ -44,7 +44,10 @@ const MoviesList = props => {
 };
 
 MoviesList.propTypes = {
-
-}
+  category: PropTypes.string,
+  title: PropTypes.string,
+  results: PropTypes.array.isRequired,
+  className: PropTypes.string
+};
 
 export default MoviesList;

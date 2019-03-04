@@ -5,9 +5,16 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchCategory } from 'actions/category';
 import { TOP_RATED_MOVIES, POPULAR_MOVIES } from 'actions/action-types';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class Home extends Component {
+
+  static propTypes = {
+    topRatedMovies: PropTypes.object.isRequired,
+    popularMovies: PropTypes.object.isRequired,
+    fetchCategory: PropTypes.func.isRequired
+  }
 
   componentDidMount() {
     const { topRatedMovies, popularMovies } = this.props;
@@ -46,5 +53,3 @@ export default connect(
   }),
   dispatch => bindActionCreators({ fetchCategory }, dispatch)
 )(Home);
-
-bindActionCreators
