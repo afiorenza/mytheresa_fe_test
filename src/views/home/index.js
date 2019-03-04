@@ -9,7 +9,7 @@ import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-class Home extends Component {
+export class Home extends Component {
 
   static propTypes = {
     topRatedMovies: PropTypes.object.isRequired,

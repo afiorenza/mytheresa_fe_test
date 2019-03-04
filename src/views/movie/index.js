@@ -8,13 +8,13 @@ import { addToCart } from 'actions/cart';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-class Movie extends Component {
+export class Movie extends Component {
 
   static propTypes = {
-    fetchMovie: PropTypes.func,
-    match: PropTypes.object,
-    movie: PropTypes.object,
-    addToCart: PropTypes.func
+    fetchMovie: PropTypes.func.isRequired,
+    match: PropTypes.object.isRequired,
+    movie: PropTypes.object.isRequired,
+    addToCart: PropTypes.func.isRequired
   }
 
   componentDidMount() {

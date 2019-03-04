@@ -1,6 +1,6 @@
 import { GET } from 'utils/fetch';
 
-export const fetchCategory = (category, page) => async (dispatch) => {
+export const fetchCategory = (category, page = 1) => async (dispatch) => {
   dispatch({
     type: `FETCH_${category}_ONGOING`
   });

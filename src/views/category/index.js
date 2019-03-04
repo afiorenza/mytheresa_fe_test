@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import startCase from 'lodash/startCase';
 
-const Category = ({ fetchCategory, page, results, total_pages, isFetching, match }) => {
+export const Category = ({ fetchCategory, page, results, total_pages, isFetching, match }) => {
 
   const loadMore = async (page) => {
     if (!isFetching) {
@@ -54,7 +54,7 @@ Category.propTypes = {
   results: PropTypes.array.isRequired,
   total_pages: PropTypes.number,
   isFetching: PropTypes.bool,
-  match: PropTypes.object
+  match: PropTypes.object.isRequired
 };
 
 export default connect(

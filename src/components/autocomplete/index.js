@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-class Autocomplete extends Component {
+export class Autocomplete extends Component {
   static propTypes = {
     className: PropTypes.string,
     history: PropTypes.object
@@ -18,7 +18,7 @@ class Autocomplete extends Component {
     super(props);
 
     this.state = {
-      isFocus: false,
+      isFocused: false,
       inputValue: '',
       moviesResult: []
     };
@@ -50,13 +50,13 @@ class Autocomplete extends Component {
 
   handleInputFocus = () => {
     this.setState({
-      isFocus: true
+      isFocused: true
     });
   }
 
   handleInputBlur = () => {
     this.setState({
-      isFocus: false
+      isFocused: false
     });
   }
 
@@ -65,7 +65,7 @@ class Autocomplete extends Component {
   }
 
   render() {
-    const { isFocus, moviesResult } = this.state;
+    const { isFocused, moviesResult } = this.state;
 
     return (
       <div
@@ -80,7 +80,7 @@ class Autocomplete extends Component {
           value={this.state.inputValue} />
 
         {
-          isFocus && moviesResult.length > 0
+          isFocused && moviesResult.length > 0
             ? <div
               className='autocomplete--suggestions-pop-up'>
               <ul className='autocomplete--suggestions-list'>
