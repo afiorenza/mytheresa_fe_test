@@ -24,14 +24,19 @@ describe('fetch utils', () => {
       fetch.resetMocks();
     });
 
-    it('should call with correct parameters', () => {
-      GET('/test', {
+    it('should call with correct parameters', async () => {
+      const response = { id: 1234 };
+
+      fetch.mockResponseOnce(JSON.stringify(response));
+
+      const data = await GET('/test', {
         a: 1,
         b: 2
       });
 
       expect(fetch.mock.calls.length).toEqual(1);
       expect(fetch).toHaveBeenCalledWith(`${URL}/test?a=1&b=2&api_key=${MOVIE_SERVICE_API_KEY}&language=en-US`);
+      expect(data).toEqual(response);
     });
   });
 });
