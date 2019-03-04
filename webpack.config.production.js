@@ -13,8 +13,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.PUBLIC_URL': JSON.stringify('https://afiorenza.github.io/mytheresa_fe_test/'),
-      'process.env.NODE_ENV': JSON.stringify('development')
+      'process.env.PUBLIC_URL': JSON.stringify('/mytheresa_fe_test/'),
+      'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css'
