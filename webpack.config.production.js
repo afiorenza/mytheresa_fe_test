@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    publicPath: '/dist/'
+    publicPath: '/'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -21,7 +21,9 @@ module.exports = {
       filename: '[name].[hash].css'
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src/index.html')
+      favicon: path.join('src/assets/favicon.ico'),
+      template: path.join(__dirname, 'src/index.html'),
+      publicPath: '/'
     })
   ],
   module: {
