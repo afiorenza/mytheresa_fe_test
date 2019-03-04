@@ -16,16 +16,23 @@ import createReducers from 'reducers';
 import React from 'react';
 import thunk from 'redux-thunk';
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
 
 const store = createStore(
   createReducers(history),
-  composeWithDevTools(
-    applyMiddleware(
+  process.env.NODE_ENV === 'development'
+    ? composeWithDevTools(
+      applyMiddleware(
+        routerMiddleware(history),
+        thunk
+      )
+    )
+    : applyMiddleware(
       routerMiddleware(history),
       thunk
     )
-  )
 );
 
 render((
