@@ -5,8 +5,6 @@
 ## The porpouse of this respository is to accomplish the interview test.
 
 ### Links
-URL: http://my-theresa-fe.s3-website.us-east-2.amazonaws.com/
-
 Travis: https://travis-ci.org/afiorenza/mytheresa_fe_test
 
 
